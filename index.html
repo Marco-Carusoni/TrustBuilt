@@ -574,6 +574,7 @@ function handleFormSubmit(event){event.preventDefault();var f=document.getElemen
     cur=0;render();lb.classList.add('open');document.body.style.overflow='hidden';
     lbOpenTime=Date.now();lbTitle=title;lbTag=tag;lbImgViews=0;
     gtag('event','gallery_open',{event_category:'portfolio',event_label:title,value:tag});
+    if(window.trustBuiltProfile)window.trustBuiltProfile.galleriesOpened.push({name:title,tag:tag,time:Date.now()});
   }
   function render(){
     gallery.innerHTML='';
@@ -622,21 +623,34 @@ function handleFormSubmit(event){event.preventDefault();var f=document.getElemen
 })();
 // ===== Analytics Events =====
 (function(){
+  // User profile builder
+  var profile={sessionStart:Date.now(),pagesVisited:[],servicesViewed:[],galleriesOpened:[],ctasClicked:[],interestScore:{residential:0,commercial:0,interior:0,exterior:0,kitchen:0,bathroom:0,basement:0,outdoor:0,roofing:0,office:0,restaurant:0,retail:0},scrollMax:0,device:{w:screen.width,h:screen.height,pixelRatio:window.devicePixelRatio,os:(function(){var u=navigator.userAgent;if(/Windows/.test(u))return'Windows';if(/Mac/.test(u))return'Mac';if(/Android/.test(u))return'Android';if(/iPhone|iPad|iPod/.test(u))return'iOS';return'Other';})(),browser:(function(){var u=navigator.userAgent;if(/Edg/.test(u))return'Edge';if(/Chrome/.test(u))return'Chrome';if(/Firefox/.test(u))return'Firefox';if(/Safari/.test(u))return'Safari';return'Other';})(),language:navigator.language,timezone:Intl.DateTimeFormat().resolvedOptions().timeZone,referrer:document.referrer,utm:(function(){var p=new URLSearchParams(window.location.search);return{source:p.get('utm_source')||'direct',medium:p.get('utm_medium')||'none',campaign:p.get('utm_campaign')||'none',term:p.get('utm_term')||'none'};})()}};
+
+  function addInterest(kw){var k=kw.toLowerCase();Object.keys(profile.interestScore).forEach(function(key){if(k.indexOf(key)!==-1)profile.interestScore[key]++;});}
+  function topInterest(){var top=null,hi=0;Object.keys(profile.interestScore).forEach(function(k){if(profile.interestScore[k]>hi){hi=profile.interestScore[k];top=k;}});return top||'general';}
+  function sendProfile(reason){
+    profile.sessionDuration=Math.round((Date.now()-profile.sessionStart)/1000);
+    profile.topInterest=topInterest();
+    gtag('event','user_profile',{event_category:'profiling',event_label:reason,metric1:profile.sessionDuration,metric2:profile.pagesVisited.length,non_interaction:true,interest:profile.topInterest,device_os:profile.device.os,browser:profile.device.browser,utm_source:profile.device.utm.source,utm_medium:profile.device.utm.medium,utm_campaign:profile.device.utm.campaign,ref:profile.device.referrer?profile.device.referrer.substring(0,100):'none',services:Object.keys(profile.interestScore).filter(function(k){return profile.interestScore[k]>0;}).join(','),galleries:profile.galleriesOpened.map(function(g){return g.name}).join(','),ctas:profile.ctasClicked.join(','),scroll_pct:profile.scrollMax,lang:profile.device.language,tz:profile.device.timezone,screen:profile.device.w+'x'+profile.device.h});
+  }
+  // Track page visits
+  function trackPage(p){profile.pagesVisited.push(p);profile.servicesViewed.forEach(function(){addInterest(p);});}
+
   // CTA button clicks
   document.querySelectorAll('.btn-primary, .btn-outline').forEach(function(b){
-    b.addEventListener('click',function(){var t=this.textContent.trim();gtag('event','cta_click',{event_category:'engagement',event_label:t});});
+    b.addEventListener('click',function(){var t=this.textContent.trim();profile.ctasClicked.push(t);addInterest(t);gtag('event','cta_click',{event_category:'engagement',event_label:t});});
   });
   // Phone calls
   document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
-    a.addEventListener('click',function(){gtag('event','phone_call',{event_category:'conversion'});});
+    a.addEventListener('click',function(){gtag('event','phone_call',{event_category:'conversion'});sendProfile('phone_call');});
   });
   // Email clicks
   document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
-    a.addEventListener('click',function(){gtag('event','email_click',{event_category:'conversion'});});
+    a.addEventListener('click',function(){gtag('event','email_click',{event_category:'conversion'});sendProfile('email_click');});
   });
   // Service tab interactions
   document.querySelectorAll('.service-tabs button, .service-subtabs button').forEach(function(b){
-    b.addEventListener('click',function(){gtag('event','service_tab_click',{event_category:'engagement',event_label:this.textContent.trim()});});
+    b.addEventListener('click',function(){var t=this.textContent.trim();profile.servicesViewed.push(t);addInterest(t);gtag('event','service_tab_click',{event_category:'engagement',event_label:t});});
   });
   // Portfolio filter clicks
   document.querySelectorAll('.portfolio-tabs button').forEach(function(b){
@@ -646,8 +660,22 @@ function handleFormSubmit(event){event.preventDefault();var f=document.getElemen
   var scrollTracked={25:false,50:false,75:false,100:false};
   window.addEventListener('scroll',function(){
     var pct=Math.round((window.scrollY+window.innerHeight)/Math.max(document.body.scrollHeight,window.innerHeight)*100);
+    if(pct>profile.scrollMax)profile.scrollMax=pct;
     Object.keys(scrollTracked).forEach(function(k){if(pct>=parseInt(k)&&!scrollTracked[k]){scrollTracked[k]=true;gtag('event','scroll_depth',{event_category:'engagement',event_label:k+'%'});}});
   },{passive:true});
+  // Session end profiling
+  window.addEventListener('beforeunload',function(){sendProfile('session_end');});
+  // Override form submit with profile attached
+  var _ohfs=window.handleFormSubmit;
+  window.handleFormSubmit=function(event){
+    event.preventDefault();var f=document.getElementById('contactForm'),s=document.getElementById('formSuccess');
+    if(f&&s){f.style.display='none';s.style.display='block';
+    gtag('event','form_submit',{event_category:'engagement',event_label:'Contact Form'});
+    sendProfile('form_submit');}
+    return false;
+  };
+  // Expose profile for debugging
+  window.trustBuiltProfile=profile;
 })();
 </script>
 </body>
