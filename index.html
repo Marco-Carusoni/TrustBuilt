@@ -45,10 +45,11 @@ a{color:var(--color-primary);text-decoration:none}a:hover{color:var(--color-acce
 .hero h1{font-size:clamp(1.55rem,6vw,3rem);color:var(--color-white);margin-bottom:.8rem}
 .hero p{font-size:clamp(.85rem,2.5vw,1.25rem);max-width:60%;margin:0 auto 2.5%;opacity:.9}
 .hero .btn{margin-top:.5rem}.hero-btn-second{margin-left:1rem}
+.hero .btn-wrap{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem}
 .about-preview{text-align:center;max-width:65%;margin:0 auto}
 .about-preview p{font-size:clamp(.85rem,2vw,1.15rem);color:var(--color-text-light);margin-bottom:1.2rem}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(45%,18rem),1fr));gap:clamp(.6rem,1.5vw,1.25rem)}
-.gallery-card{background:var(--color-white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s ease}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.6rem,1.5vw,1.25rem)}
+.gallery-card{background:var(--color-white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s ease;cursor:pointer}
 .gallery-card:hover{transform:translateY(-.25rem)}
 .gallery-card .img-placeholder{height:clamp(8rem,18vw,14rem);background:var(--color-bg-alt);display:flex;align-items:center;justify-content:center;color:var(--color-text-light);font-size:.85rem}
 .gallery-card .card-info{padding:clamp(.5rem,1.5vw,1.2rem)}
@@ -80,45 +81,41 @@ a{color:var(--color-primary);text-decoration:none}a:hover{color:var(--color-acce
 .portfolio-item .p-img{width:100%;height:clamp(8rem,20vw,16rem);object-fit:cover;display:block}
 .portfolio-item .item-info{padding:clamp(.6rem,1.5vw,1.3rem)}
 .portfolio-item .item-info h4{font-size:1.05rem}
-</script>
-
-<!-- Lightbox Modal -->
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" id="lbClose" aria-label="Close">&times;</button>
-    <div class="lb-gallery" id="lbGallery"></div>
-    <div class="lb-thumbs" id="lbThumbs"></div>
-    <div class="lb-text" id="lbText"></div>
-  </div>
-</div>
-
-</body>
-</html>
+.portfolio-item .item-info p{font-size:.9rem;color:var(--color-text-light);margin-top:.25rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .portfolio-item .item-tag{display:inline-block;background:var(--color-bg-alt);color:var(--color-primary);padding:.2rem .7rem;border-radius:.2rem;font-size:.78rem;margin-top:.5rem}
 /* Lightbox Modal */
 .lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.88);z-index:2000;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.lightbox.open{display:flex;align-items:flex-start;justify-content:center;padding:clamp(1rem,3vw,2.5rem) 2%}
+.lightbox.open{display:flex;align-items:flex-start;justify-content:center;padding:0}
 .lightbox-inner{background:var(--color-white);border-radius:var(--radius);max-width:90%;width:56rem;overflow:hidden;box-shadow:0 .5rem 2rem rgba(0,0,0,.3)}
-.lightbox-close{position:sticky;top:0;float:right;z-index:10;width:2.75rem;height:2.75rem;background:rgba(0,0,0,.6);border:none;border-radius:50%;color:var(--color-white);font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;margin:.75rem;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.lightbox-close{position:absolute;top:0;right:0;z-index:20;width:3rem;height:3rem;background:rgba(0,0,0,.6);border:none;border-radius:50%;color:var(--color-white);font-size:1.6rem;cursor:pointer;display:flex;align-items:center;justify-content:center;margin:.75rem;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .lightbox-close:hover{background:rgba(0,0,0,.85)}
-.lb-gallery{position:relative;background:#111}
-.lb-gallery img{width:100%;height:clamp(14rem,55vw,28rem);object-fit:cover;display:none}
+.lb-gallery{position:relative;background:#111;touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
+.lb-gallery img{width:100%;height:clamp(14rem,55vw,28rem);object-fit:cover;display:none;pointer-events:none}
 .lb-gallery img.active{display:block}
-.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:var(--color-white);border:none;font-size:1.8rem;cursor:pointer;padding:.4rem .8rem;border-radius:var(--radius);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.lb-nav:hover{background:rgba(0,0,0,.8)}
-.lb-prev{left:2%}.lb-next{right:2%}
-.lb-thumbs{display:flex;gap:.4rem;padding:.6rem;overflow-x:auto;background:var(--color-bg-alt)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:var(--color-white);border:none;font-size:2rem;cursor:pointer;padding:.5rem .8rem;border-radius:var(--radius);touch-action:manipulation;-webkit-tap-highlight-color:transparent;z-index:5}
+.lb-nav:hover,.lb-nav:active{background:rgba(0,0,0,.8)}
+.lb-prev{left:1%}.lb-next{right:1%}
+.lb-dots{display:flex;justify-content:center;gap:.35rem;padding:.5rem .5rem 0}
+.lb-dots span{width:.5rem;height:.5rem;border-radius:50%;background:rgba(255,255,255,.35);transition:background .2s}
+.lb-dots span.active{background:var(--color-accent)}
+.lb-thumbs{display:flex;gap:.4rem;padding:.5rem;overflow-x:auto;background:var(--color-bg-alt)}
 .lb-thumbs img{width:clamp(3rem,8vw,5rem);height:clamp(2.5rem,6vw,4rem);object-fit:cover;border-radius:.2rem;cursor:pointer;opacity:.5;transition:opacity .2s;flex-shrink:0}
 .lb-thumbs img:hover,.lb-thumbs img.active{opacity:1;outline:.15rem solid var(--color-accent);outline-offset:-.15rem}
-.lb-text{padding:clamp(1rem,2.5vw,2rem)}
-.lb-text h2{color:var(--color-primary);margin-bottom:.4rem}
-.lb-text .lb-tag{display:inline-block;background:var(--color-bg-alt);color:var(--color-primary);padding:.15rem .6rem;border-radius:.2rem;font-size:.78rem;margin-bottom:.8rem}
-.lb-text p{color:var(--color-text-light);font-size:.95rem;margin-bottom:.6rem;line-height:1.7}
-.lb-text .lb-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(40%,10rem),1fr));gap:.5rem;margin-top:1rem;padding-top:1rem;border-top:.06rem solid var(--color-border)}
-.lb-text .lb-details strong{color:var(--color-primary);display:block;font-size:.82rem;margin-bottom:.15rem}
-.lb-text .lb-details span{color:var(--color-text-light);font-size:.9rem}
+.lb-text{padding:clamp(.8rem,2vw,2rem)}
+.lb-text h2{color:var(--color-primary);margin-bottom:.3rem;font-size:clamp(1rem,3vw,1.5rem)}
+.lb-text .lb-tag{display:inline-block;background:var(--color-bg-alt);color:var(--color-primary);padding:.15rem .6rem;border-radius:.2rem;font-size:.78rem;margin-bottom:.6rem}
+.lb-text p{color:var(--color-text-light);font-size:.92rem;margin-bottom:.5rem;line-height:1.6}
+.lb-text .lb-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(40%,10rem),1fr));gap:.5rem;margin-top:.8rem;padding-top:.8rem;border-top:.06rem solid var(--color-border)}
+.lb-text .lb-details strong{color:var(--color-primary);display:block;font-size:.8rem;margin-bottom:.1rem}
+.lb-text .lb-details span{color:var(--color-text-light);font-size:.88rem}
 @media(max-width:48rem){
-  .lb-nav{font-size:1.3rem;padding:.3rem .6rem}.lightbox-inner{max-width:96%}
+  .lightbox.open{padding:0}.lightbox-inner{max-width:100%;border-radius:0}
+  .lb-gallery img{height:clamp(16rem,70vw,32rem)}
+  .lb-nav{font-size:2.4rem;padding:.6rem 1rem;background:rgba(0,0,0,.4)}
+  .lb-prev{left:.5%}.lb-next{right:.5%}
+  .lb-dots span{width:.6rem;height:.6rem}
+  .lb-thumbs img{width:clamp(3.5rem,14vw,5.5rem);height:clamp(3rem,10vw,4.5rem)}
+  .lightbox-close{width:3.2rem;height:3.2rem;font-size:1.8rem;margin:.5rem}
 }
 .about-intro{text-align:center;max-width:65%;margin:0 auto 2.5rem}
 .about-intro p{font-size:clamp(.85rem,2vw,1.15rem);color:var(--color-text-light)}
@@ -143,7 +140,7 @@ a{color:var(--color-primary);text-decoration:none}a:hover{color:var(--color-acce
 .site-footer h4{color:var(--color-white);margin-bottom:.8rem;font-size:1.1rem}
 .site-footer ul{list-style:none}
 .site-footer ul li{margin-bottom:.5rem}
-.site-footer ul li a{color:rgba(255,255,255,.75);font-size:.95rem;cursor:pointer}
+.site-footer a,.site-footer p a{color:rgba(255,255,255,.75);font-size:.95rem;cursor:pointer;text-decoration:underline}
 .site-footer ul li a:hover{color:var(--color-accent)}
 .site-footer .footer-bottom{border-top:.06rem solid rgba(255,255,255,.15);padding-top:1.2rem;text-align:center;font-size:.9rem}
 .page-banner{background:linear-gradient(135deg,var(--color-primary)0%,#0e2822 100%);color:var(--color-white);text-align:center;padding:clamp(2rem,5vw,4.5rem)0}
@@ -157,7 +154,7 @@ a{color:var(--color-primary);text-decoration:none}a:hover{color:var(--color-acce
   .mobile-toggle{display:flex;position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:1001}
   .hero h1{font-size:clamp(1.3rem,7vw,2rem)}
   .hero p{font-size:clamp(.8rem,3.5vw,1rem);max-width:90%}.page-banner h1{font-size:clamp(1.2rem,6vw,1.8rem)}
-  .gallery-grid{grid-template-columns:1fr}.contact-layout{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr}.contact-layout{grid-template-columns:1fr}.portfolio-grid{gap:clamp(.5rem,1vw,1rem)}
   .service-columns{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr}
   .site-footer .footer-grid{grid-template-columns:1fr 1fr}
   .section-title p{max-width:80%}.about-preview{max-width:90%}.about-intro{max-width:90%}
@@ -203,8 +200,10 @@ a{color:var(--color-primary);text-decoration:none}a:hover{color:var(--color-acce
     <div class="container">
       <h1>TrustBuilt Construction & Trade Services</h1>
       <p>Quality residential and commercial construction, built on trust.</p>
-      <a data-page="services" class="btn btn-outline">Explore Our Services</a>
-      <a data-page="contact" class="btn btn-primary hero-btn-second">Request a Consultation</a>
+      <div class="btn-wrap">
+        <a data-page="services" class="btn btn-outline">Explore Our Services</a>
+        <a data-page="contact" class="btn btn-primary">Request a Consultation</a>
+      </div>
     </div>
   </section>
   <section class="section">
@@ -220,10 +219,9 @@ a{color:var(--color-primary);text-decoration:none}a:hover{color:var(--color-acce
     <div class="container">
       <div class="section-title"><h2>Featured Projects</h2></div>
       <div class="gallery-grid">
-        <div class="gallery-card"><div class="img-placeholder">Custom Kitchen Remodel &mdash; Elm Street Residence</div><div class="card-info"><h4>Luxury Kitchen Remodel</h4><p>Residential Interior &mdash; Marble countertops, custom cabinetry, and open-concept redesign.</p></div></div>
-        <div class="gallery-card"><div class="img-placeholder">Bathroom Renovation &mdash; Oak Lane Estate</div><div class="card-info"><h4>Spa-Style Bathroom</h4><p>Residential Interior &mdash; Steam shower, freestanding tub, heated floors.</p></div></div>
-        <div class="gallery-card"><div class="img-placeholder">Restaurant Fit-Out &mdash; Downtown District</div><div class="card-info"><h4>Restaurant Build-Out</h4><p>Commercial Interior &mdash; Full kitchen, custom bar, seating for 120 guests.</p></div></div>
-        <div class="gallery-card"><div class="img-placeholder">Outdoor Living &mdash; Maple Drive Residence</div><div class="card-info"><h4>Outdoor Kitchen & Patio</h4><p>Residential Exterior &mdash; Built-in grill, stone countertops, hardscaping.</p></div></div>
+        <div class="gallery-card" data-title="Luxury Kitchen Remodel" data-tag="Residential Interior" data-location="Elm Street Residence" data-year="2025" data-budget="$185,000" data-desc="Complete kitchen remodel featuring marble countertops, custom cabinetry, open-concept redesign, and premium Wolf &amp; Sub-Zero appliances. The project opened up the main floor and created a seamless flow into the dining area."><img class="p-img" src="https://picsum.photos/seed/kitchen1/640/400" alt="Kitchen" loading="lazy"><div class="card-info"><h4>Luxury Kitchen Remodel</h4><p>Residential Interior &mdash; Marble countertops, custom cabinetry, and open-concept redesign.</p></div></div>
+        <div class="gallery-card" data-title="Spa-Style Bathroom" data-tag="Residential Interior" data-location="Oak Lane Estate" data-year="2025" data-budget="$95,000" data-desc="Spa-style renovation featuring steam shower, freestanding soaking tub, heated flooring, and imported Italian tile. Custom vanity with dual sinks and smart mirror with integrated lighting."><img class="p-img" src="https://picsum.photos/seed/bath1/640/400" alt="Bathroom" loading="lazy"><div class="card-info"><h4>Spa-Style Bathroom</h4><p>Residential Interior &mdash; Steam shower, freestanding tub, heated floors.</p></div></div>
+        <div class="gallery-card" data-title="Restaurant Build-Out" data-tag="Commercial Interior" data-location="Downtown District" data-year="2025" data-budget="$420,000" data-desc="Complete build-out of a 3,200 sq ft restaurant including commercial kitchen with hood suppression, custom walnut bar, and seating for 120 guests. Features exposed brick and industrial lighting."><img class="p-img" src="https://picsum.photos/seed/restaurant1/640/400" alt="Restaurant" loading="lazy"><div class="card-info"><h4>Restaurant Build-Out</h4><p>Commercial Interior &mdash; Full kitchen, custom bar, seating for 120 guests.</p></div></div>
       </div>
     </div>
   </section>
@@ -430,14 +428,14 @@ a{color:var(--color-primary);text-decoration:none}a:hover{color:var(--color-acce
         <div class="contact-info">
           <h3>Contact Information</h3>
           <div class="info-block"><p><strong>Address</strong><br>1234 Builder Lane, Suite 200<br>Chicago, IL 60601</p></div>
-          <div class="info-block"><p><strong>Phone</strong><br>(312) 555-0199</p></div>
-          <div class="info-block"><p><strong>Email</strong><br>info@trustbuiltconstruction.com</p></div>
+          <div class="info-block"><p><strong>Phone</strong><br><a href="tel:+13125550199">(312) 555-0199</a></p></div>
+          <div class="info-block"><p><strong>Email</strong><br><a href="mailto:info@trustbuiltconstruction.com?subject=New%20Project%20Inquiry">info@trustbuiltconstruction.com</a></p></div>
           <div class="info-block"><p><strong>Business Hours</strong><br>Monday &ndash; Friday: 7:00 AM &ndash; 5:00 PM<br>Saturday: 8:00 AM &ndash; 2:00 PM<br>Sunday: Closed</p></div>
         </div>
       </div>
     </div>
   </section>
-  <section class="cta-strip"><div class="container"><h2>Prefer to Call?</h2><p>(312) 555-0199</p><a href="tel:+13125550199" class="btn btn-primary">Call Now</a></div></section>
+  <section class="cta-strip"><div class="container"><h2>Prefer to Call?</h2><p><a href="tel:+13125550199">(312) 555-0199</a></p><a href="tel:+13125550199" class="btn btn-primary">Call Now</a></div></section>
 </main>
 
 <!-- Shared Footer -->
@@ -447,7 +445,7 @@ a{color:var(--color-primary);text-decoration:none}a:hover{color:var(--color-acce
       <div><h4>TrustBuilt Construction</h4><p>Quality residential and commercial construction.</p></div>
       <div><h4>Quick Links</h4><ul><li><a data-page="home">Home</a></li><li><a data-page="services">Services</a></li><li><a data-page="portfolio">Portfolio</a></li><li><a data-page="about">About Us</a></li><li><a data-page="contact">Contact</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a data-page="services">Residential</a></li><li><a data-page="services">Commercial</a></li></ul></div>
-      <div><h4>Contact</h4><p>1234 Builder Lane<br>Suite 200<br>Chicago, IL 60601</p><p>Phone: (312) 555-0199<br>Email: info@trustbuiltconstruction.com</p></div>
+      <div><h4>Contact</h4><p>1234 Builder Lane<br>Suite 200<br>Chicago, IL 60601</p><p>Phone: <a href="tel:+13125550199">(312) 555-0199</a><br>Email: <a href="mailto:info@trustbuiltconstruction.com?subject=New%20Project%20Inquiry">info@trustbuiltconstruction.com</a></p></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2026 TrustBuilt Construction & Trade Services. All rights reserved.</p></div>
   </div>
@@ -483,6 +481,71 @@ var pt=document.querySelectorAll('.portfolio-tabs button');
 if(pt.length){pt.forEach(function(b){b.addEventListener('click',function(){pt.forEach(function(x){x.classList.remove('active');});b.classList.add('active');var f=b.getAttribute('data-tab');document.querySelectorAll('.portfolio-item').forEach(function(i){if(f==='all'||i.getAttribute('data-category')===f)i.style.display='block';else i.style.display='none';});});});}
 })();
 function handleFormSubmit(event){event.preventDefault();var f=document.getElementById('contactForm'),s=document.getElementById('formSuccess');if(f&&s){f.style.display='none';s.style.display='block';}return false;}
+</script>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lbClose" aria-label="Close">&times;</button>
+    <div class="lb-gallery" id="lbGallery"></div>
+    <div class="lb-thumbs" id="lbThumbs"></div>
+    <div class="lb-text" id="lbText"></div>
+  </div>
+</div>
+
+<script>
+// ===== Lightbox JS =====
+(function(){
+  var lb=document.getElementById('lightbox'),gallery=document.getElementById('lbGallery'),thumbs=document.getElementById('lbThumbs'),text=document.getElementById('lbText'),close=document.getElementById('lbClose'),imgs=[],cur=0;
+  var dotsContainer=document.createElement('div');dotsContainer.className='lb-dots';
+  function open(item){
+    var seed=item.querySelector('.p-img').src.match(/seed\/(\w+)/)[1];
+    imgs=[];
+    for(var i=1;i<=5;i++){imgs.push('https://picsum.photos/seed/'+seed+i+'/900/500');}
+    cur=0;render();lb.classList.add('open');document.body.style.overflow='hidden';
+  }
+  function render(){
+    gallery.innerHTML='';
+    gallery.appendChild(dotsContainer);
+    imgs.forEach(function(src,i){
+      var img=document.createElement('img');img.src=src;img.draggable=false;if(i===cur)img.className='active';
+      gallery.appendChild(img);
+    });
+    dotsContainer.innerHTML='';
+    if(imgs.length>1){
+      var prev=document.createElement('button');prev.className='lb-nav lb-prev';prev.textContent='\u2039';prev.setAttribute('aria-label','Previous');prev.addEventListener('click',function(e){e.stopPropagation();navigate(-1);});
+      var next=document.createElement('button');next.className='lb-nav lb-next';next.textContent='\u203a';next.setAttribute('aria-label','Next');next.addEventListener('click',function(e){e.stopPropagation();navigate(1);});
+      gallery.appendChild(prev);gallery.appendChild(next);
+      imgs.forEach(function(_,i){var d=document.createElement('span');if(i===cur)d.className='active';dotsContainer.appendChild(d);});
+    }
+    thumbs.innerHTML='';
+    imgs.forEach(function(src,i){
+      var t=document.createElement('img');t.src=src.replace('/900/500','/200/130');t.draggable=false;
+      if(i===cur)t.className='active';t.addEventListener('click',function(){cur=i;render();});
+      thumbs.appendChild(t);
+    });
+    var item=document.querySelector('.portfolio-item[data-title="'+lbCurrentTitle+'"], .gallery-card[data-title="'+lbCurrentTitle+'"]');
+    if(!item)item=document.querySelector('.portfolio-item, .gallery-card');
+    var title=item.getAttribute('data-title'),tag=item.getAttribute('data-tag'),loc=item.getAttribute('data-location'),yr=item.getAttribute('data-year'),budget=item.getAttribute('data-budget'),desc=item.getAttribute('data-desc');
+    text.innerHTML='<h2>'+title+'</h2><span class="lb-tag">'+tag+'</span><p>'+desc+'</p><div class="lb-details"><div><strong>Location</strong><span>'+loc+'</span></div><div><strong>Year</strong><span>'+yr+'</span></div><div><strong>Budget</strong><span>'+budget+'</span></div></div>';
+    lbCurrentTitle=title;
+  }
+  function navigate(dir){cur=(cur+dir+imgs.length)%imgs.length;render();}
+  // Swipe support
+  var touchStartX=0,touchStartY=0;
+  gallery.addEventListener('touchstart',function(e){touchStartX=e.touches[0].clientX;touchStartY=e.touches[0].clientY;},{passive:true});
+  gallery.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-touchStartX;
+    var dy=e.changedTouches[0].clientY-touchStartY;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40){navigate(dx>0?-1:1);}
+  });
+  var lbCurrentTitle='';
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';imgs=[];cur=0;}
+  document.querySelectorAll('.portfolio-item, .gallery-card').forEach(function(item){item.addEventListener('click',function(){lbCurrentTitle=this.getAttribute('data-title');open(this);});});
+  close.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')navigate(-1);if(e.key==='ArrowRight')navigate(1);});
+})();
 </script>
 </body>
 </html>
