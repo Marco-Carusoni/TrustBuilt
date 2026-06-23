@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TrustBuilt Construction & Trade Services delivers exceptional residential and commercial construction solutions with unmatched quality, trust, and efficiency.">
+  <meta name="keywords" content="construction, remodeling, renovation, residential, commercial, general contractor, kitchen remodeling, bathroom renovation">
+  <title>TrustBuilt Construction & Trade Services | Residential & Commercial Construction</title>
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --color-primary:#1a3c34;--color-primary-light:#2a5c52;--color-accent:#c8a44e;
+  --color-accent-hover:#b8923a;--color-bg:#f9f8f6;--color-bg-alt:#f0ede8;
+  --color-text:#2c2c2c;--color-text-light:#5c5c5c;--color-white:#ffffff;
+  --color-border:#d4cfc5;--font-heading:'Georgia','Times New Roman',serif;
+  --font-body:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --shadow:0 .15rem .8rem rgba(0,0,0,.08);--radius:.4rem;
+}
+html{scroll-behavior:smooth;font-size:clamp(14px,2.5vw,17px)}
+body{font-family:var(--font-body);color:var(--color-text);background:var(--color-bg);line-height:1.7;}
+h1,h2,h3,h4{font-family:var(--font-heading);color:var(--color-primary);line-height:1.25}
+h1{font-size:clamp(1.65rem,5vw,2.6rem)}h2{font-size:clamp(1.35rem,4vw,2rem);margin-bottom:.5rem}
+h3{font-size:clamp(1.1rem,3vw,1.5rem);margin-bottom:.3rem}
+a{color:var(--color-primary);text-decoration:none}a:hover{color:var(--color-accent)}
+.container{max-width:90%;margin:0 auto;padding:0 2%}
+.btn{display:inline-block;padding:clamp(.5rem,1.2vw,1rem) clamp(1rem,3vw,2.5rem);border-radius:var(--radius);font-weight:600;font-size:.95rem;cursor:pointer;text-align:center;transition:all .25s ease;border:.13rem solid transparent;text-transform:uppercase;letter-spacing:.03rem;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.btn-primary{background:var(--color-accent);color:var(--color-white);border-color:var(--color-accent)}
+.btn-primary:hover{background:var(--color-accent-hover);border-color:var(--color-accent-hover);color:var(--color-white)}
+.btn-outline{background:transparent;color:var(--color-white);border-color:var(--color-white)}
+.btn-outline:hover{background:var(--color-white);color:var(--color-primary)}
+.section-title{text-align:center;margin-bottom:clamp(1.2rem,3vw,2.5rem)}
+.section-title p{color:var(--color-text-light);max-width:50%;margin:.5rem auto 0}
+.section{padding:clamp(2rem,5vw,5rem) 0}.section-alt{background:var(--color-bg-alt)}
+.site-header{background:var(--color-white);box-shadow:var(--shadow);position:sticky;top:0;z-index:1000}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;padding-top:clamp(.5rem,1vw,1rem);padding-bottom:clamp(.5rem,1vw,1rem);position:relative}
+.logo{font-family:var(--font-heading);font-size:clamp(1.05rem,2.5vw,1.45rem);font-weight:700;color:var(--color-primary);cursor:pointer}
+.logo span{color:var(--color-accent)}
+.nav-links{display:flex;list-style:none;gap:clamp(.8rem,2vw,2rem)}
+.nav-links a{font-weight:500;font-size:.95rem;padding:.3rem 0;border-bottom:.13rem solid transparent;transition:border-color .25s;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{border-color:var(--color-accent);color:var(--color-primary)}
+.mobile-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--color-primary);width:2.75rem;height:2.75rem;padding:.25rem;align-items:center;justify-content:center}
+.mobile-toggle svg{width:1.5rem;height:1.5rem}
+.mobile-toggle .icon-close{display:none}.mobile-toggle.open .icon-menu{display:none}.mobile-toggle.open .icon-close{display:block}
+.hero{background:linear-gradient(135deg,var(--color-primary)0%,#0e2822 100%);color:var(--color-white);text-align:center;padding:clamp(2.5rem,8vw,7rem) 0}
+.hero h1{font-size:clamp(1.55rem,6vw,3rem);color:var(--color-white);margin-bottom:.8rem}
+.hero p{font-size:clamp(.85rem,2.5vw,1.25rem);max-width:60%;margin:0 auto 2.5%;opacity:.9}
+.hero .btn{margin-top:.5rem}.hero-btn-second{margin-left:1rem}
+.about-preview{text-align:center;max-width:65%;margin:0 auto}
+.about-preview p{font-size:clamp(.85rem,2vw,1.15rem);color:var(--color-text-light);margin-bottom:1.2rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(45%,18rem),1fr));gap:clamp(.6rem,1.5vw,1.25rem)}
+.gallery-card{background:var(--color-white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s ease}
+.gallery-card:hover{transform:translateY(-.25rem)}
+.gallery-card .img-placeholder{height:clamp(8rem,18vw,14rem);background:var(--color-bg-alt);display:flex;align-items:center;justify-content:center;color:var(--color-text-light);font-size:.85rem}
+.gallery-card .card-info{padding:clamp(.5rem,1.5vw,1.2rem)}
+.gallery-card .card-info h4{font-size:1.05rem;margin-bottom:.25rem}
+.gallery-card .card-info p{font-size:.9rem;color:var(--color-text-light)}
+.cta-strip{background:var(--color-primary);color:var(--color-white);text-align:center;padding:clamp(2rem,5vw,4rem) 0}
+.cta-strip h2{color:var(--color-white);margin-bottom:.4rem}
+.cta-strip p{margin-bottom:1.2rem;opacity:.9}
+.service-category{margin-bottom:2rem}
+.service-category h3{color:var(--color-accent);border-bottom:.13rem solid var(--color-border);padding-bottom:.4rem;margin-bottom:.8rem}
+.service-columns{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(42%,20rem),1fr));gap:clamp(.5rem,1.2vw,1.25rem)}
+.service-card{background:var(--color-white);border:.06rem solid var(--color-border);border-radius:var(--radius);padding:clamp(.7rem,1.5vw,1.4rem);transition:box-shadow .3s ease}
+.service-card:hover{box-shadow:var(--shadow)}
+.service-card h4{font-size:1.05rem;margin-bottom:.25rem}
+.service-card p{font-size:.9rem;color:var(--color-text-light)}
+.service-tabs,.portfolio-tabs{display:flex;flex-wrap:wrap;gap:clamp(.5rem,1.2vw,1rem);justify-content:center;margin-bottom:clamp(1rem,2vw,2rem)}
+.service-tabs button{padding:clamp(.4rem,1vw,.8rem) clamp(1rem,2.5vw,2rem);border:none;border-bottom:.2rem solid transparent;background:none;border-radius:0;cursor:pointer;font-size:clamp(.9rem,2.5vw,1.1rem);transition:all .25s ease;font-weight:600;font-family:var(--font-heading);color:var(--color-text-light);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.service-tabs button:hover{color:var(--color-primary);border-bottom-color:var(--color-border)}
+.service-tabs button.active{color:var(--color-primary);border-bottom-color:var(--color-accent)}
+.portfolio-tabs button{padding:clamp(.4rem,1vw,.8rem) clamp(.8rem,2vw,1.6rem);border:.13rem solid var(--color-border);background:var(--color-white);border-radius:var(--radius);cursor:pointer;font-size:.9rem;transition:all .25s ease;font-weight:500;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.portfolio-tabs button:hover,.portfolio-tabs button.active{background:var(--color-primary);color:var(--color-white);border-color:var(--color-primary)}
+.service-subtabs{display:inline-flex;border:.13rem solid var(--color-border);border-radius:2rem;overflow:hidden;margin-bottom:1.2rem}
+.service-subtabs button{padding:clamp(.35rem,.8vw,.6rem) clamp(1rem,2.5vw,2rem);border:none;background:var(--color-white);cursor:pointer;font-size:.88rem;transition:all .25s ease;font-weight:500;touch-action:manipulation;-webkit-tap-highlight-color:transparent;color:var(--color-text-light)}
+.service-subtabs button:hover{background:var(--color-bg-alt)}
+.service-subtabs button.active{background:var(--color-primary);color:var(--color-white)}
+.service-subtabs button+button{border-left:.06rem solid var(--color-border)}
+.portfolio-item{background:var(--color-white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s ease;cursor:pointer}
+.portfolio-item:hover{transform:translateY(-.25rem)}
+.portfolio-item .p-img{width:100%;height:clamp(8rem,20vw,16rem);object-fit:cover;display:block}
+.portfolio-item .item-info{padding:clamp(.6rem,1.5vw,1.3rem)}
+.portfolio-item .item-info h4{font-size:1.05rem}
+</script>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lbClose" aria-label="Close">&times;</button>
+    <div class="lb-gallery" id="lbGallery"></div>
+    <div class="lb-thumbs" id="lbThumbs"></div>
+    <div class="lb-text" id="lbText"></div>
+  </div>
+</div>
+
+</body>
+</html>
+.portfolio-item .item-tag{display:inline-block;background:var(--color-bg-alt);color:var(--color-primary);padding:.2rem .7rem;border-radius:.2rem;font-size:.78rem;margin-top:.5rem}
+/* Lightbox Modal */
+.lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.88);z-index:2000;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.lightbox.open{display:flex;align-items:flex-start;justify-content:center;padding:clamp(1rem,3vw,2.5rem) 2%}
+.lightbox-inner{background:var(--color-white);border-radius:var(--radius);max-width:90%;width:56rem;overflow:hidden;box-shadow:0 .5rem 2rem rgba(0,0,0,.3)}
+.lightbox-close{position:sticky;top:0;float:right;z-index:10;width:2.75rem;height:2.75rem;background:rgba(0,0,0,.6);border:none;border-radius:50%;color:var(--color-white);font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;margin:.75rem;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.lightbox-close:hover{background:rgba(0,0,0,.85)}
+.lb-gallery{position:relative;background:#111}
+.lb-gallery img{width:100%;height:clamp(14rem,55vw,28rem);object-fit:cover;display:none}
+.lb-gallery img.active{display:block}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:var(--color-white);border:none;font-size:1.8rem;cursor:pointer;padding:.4rem .8rem;border-radius:var(--radius);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.lb-nav:hover{background:rgba(0,0,0,.8)}
+.lb-prev{left:2%}.lb-next{right:2%}
+.lb-thumbs{display:flex;gap:.4rem;padding:.6rem;overflow-x:auto;background:var(--color-bg-alt)}
+.lb-thumbs img{width:clamp(3rem,8vw,5rem);height:clamp(2.5rem,6vw,4rem);object-fit:cover;border-radius:.2rem;cursor:pointer;opacity:.5;transition:opacity .2s;flex-shrink:0}
+.lb-thumbs img:hover,.lb-thumbs img.active{opacity:1;outline:.15rem solid var(--color-accent);outline-offset:-.15rem}
+.lb-text{padding:clamp(1rem,2.5vw,2rem)}
+.lb-text h2{color:var(--color-primary);margin-bottom:.4rem}
+.lb-text .lb-tag{display:inline-block;background:var(--color-bg-alt);color:var(--color-primary);padding:.15rem .6rem;border-radius:.2rem;font-size:.78rem;margin-bottom:.8rem}
+.lb-text p{color:var(--color-text-light);font-size:.95rem;margin-bottom:.6rem;line-height:1.7}
+.lb-text .lb-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(40%,10rem),1fr));gap:.5rem;margin-top:1rem;padding-top:1rem;border-top:.06rem solid var(--color-border)}
+.lb-text .lb-details strong{color:var(--color-primary);display:block;font-size:.82rem;margin-bottom:.15rem}
+.lb-text .lb-details span{color:var(--color-text-light);font-size:.9rem}
+@media(max-width:48rem){
+  .lb-nav{font-size:1.3rem;padding:.3rem .6rem}.lightbox-inner{max-width:96%}
+}
+.about-intro{text-align:center;max-width:65%;margin:0 auto 2.5rem}
+.about-intro p{font-size:clamp(.85rem,2vw,1.15rem);color:var(--color-text-light)}
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(40%,16rem),1fr));gap:clamp(.8rem,2vw,1.5rem)}
+.value-card{background:var(--color-white);border:.06rem solid var(--color-border);border-radius:var(--radius);padding:clamp(1rem,2.5vw,2rem)clamp(.7rem,1.5vw,1.4rem);text-align:center;transition:box-shadow .3s ease}
+.value-card:hover{box-shadow:var(--shadow)}
+.value-card .value-icon{font-size:2rem;color:var(--color-accent);margin-bottom:.8rem}
+.value-card h4{margin-bottom:.5rem}
+.value-card p{font-size:.9rem;color:var(--color-text-light)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,3.5rem);align-items:start}
+.contact-form{background:var(--color-white);padding:clamp(1rem,2.5vw,2.5rem);border-radius:var(--radius);box-shadow:var(--shadow)}
+.contact-form .form-group{margin-bottom:clamp(.8rem,1.5vw,1.4rem)}
+.contact-form label{display:block;font-weight:600;margin-bottom:.4rem;color:var(--color-primary)}
+.contact-form input,.contact-form textarea{width:100%;padding:clamp(.5rem,1vw,.9rem);border:.13rem solid var(--color-border);border-radius:var(--radius);font-size:1rem;font-family:var(--font-body);transition:border-color .25s}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--color-accent)}
+.contact-form textarea{resize:vertical;min-height:7rem}
+.contact-info h3{margin-bottom:.8rem}
+.contact-info p{margin-bottom:.8rem;color:var(--color-text-light)}
+.contact-info .info-block{margin-bottom:1.2rem}
+.site-footer{background:var(--color-primary);color:rgba(255,255,255,.85);padding:clamp(1.5rem,3vw,3.5rem)0 clamp(1rem,2vw,2rem)}
+.site-footer .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(44%,14rem),1fr));gap:clamp(1rem,2.5vw,2rem);margin-bottom:2rem}
+.site-footer h4{color:var(--color-white);margin-bottom:.8rem;font-size:1.1rem}
+.site-footer ul{list-style:none}
+.site-footer ul li{margin-bottom:.5rem}
+.site-footer ul li a{color:rgba(255,255,255,.75);font-size:.95rem;cursor:pointer}
+.site-footer ul li a:hover{color:var(--color-accent)}
+.site-footer .footer-bottom{border-top:.06rem solid rgba(255,255,255,.15);padding-top:1.2rem;text-align:center;font-size:.9rem}
+.page-banner{background:linear-gradient(135deg,var(--color-primary)0%,#0e2822 100%);color:var(--color-white);text-align:center;padding:clamp(2rem,5vw,4.5rem)0}
+.page-banner h1{color:var(--color-white);margin-bottom:.4rem}
+.page-banner p{opacity:.9;font-size:clamp(.85rem,2vw,1.15rem)}
+.watermark{position:fixed;bottom:1%;right:1%;z-index:9999;pointer-events:none;opacity:.18;font-family:var(--font-heading);font-size:1.1rem;color:var(--color-primary);font-weight:700;letter-spacing:.06rem}
+@media(max-width:48rem){
+  .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--color-white);box-shadow:0 .5rem 1.5rem rgba(0,0,0,.15);padding:1.2rem 2%;gap:0}
+  .nav-links li{border-bottom:.06rem solid var(--color-border)}.nav-links li:last-child{border-bottom:none}
+  .nav-links a{display:block;padding:.9rem 0;font-size:1.05rem;border-bottom:none}.nav-links.open{display:flex}
+  .mobile-toggle{display:flex;position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:1001}
+  .hero h1{font-size:clamp(1.3rem,7vw,2rem)}
+  .hero p{font-size:clamp(.8rem,3.5vw,1rem);max-width:90%}.page-banner h1{font-size:clamp(1.2rem,6vw,1.8rem)}
+  .gallery-grid{grid-template-columns:1fr}.contact-layout{grid-template-columns:1fr}
+  .service-columns{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr}
+  .site-footer .footer-grid{grid-template-columns:1fr 1fr}
+  .section-title p{max-width:80%}.about-preview{max-width:90%}.about-intro{max-width:90%}
+}
+@media(max-width:30rem){
+  .container{padding:0 3%}.section-title p{max-width:95%}.about-preview{max-width:95%}.about-intro{max-width:95%}
+  .cta-strip .btn{width:auto;max-width:80%;margin:0 auto}.service-tabs button{font-size:.85rem}.portfolio-tabs button{font-size:.78rem}
+}
+@media(max-width:22.5rem){
+  .service-tabs{flex-direction:row;gap:0}.service-tabs button{font-size:.78rem;padding:.4rem .8rem}
+  .portfolio-tabs{flex-direction:column;gap:.4rem}.portfolio-tabs button{width:100%}
+}
+  </style>
+</head>
+<body>
+
+<!-- Watermark -->
+<div class="watermark">Marco's Demo Page</div>
+
+<!-- Shared Header -->
+<header class="site-header">
+  <div class="container">
+    <a class="logo" data-page="home">Trust<span>Built</span></a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+      <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a data-page="home" class="active">Home</a></li>
+        <li><a data-page="services">Services</a></li>
+        <li><a data-page="portfolio">Portfolio</a></li>
+        <li><a data-page="about">About Us</a></li>
+        <li><a data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HOME PAGE -->
+<main id="page-home" class="page-section">
+  <section class="hero">
+    <div class="container">
+      <h1>TrustBuilt Construction & Trade Services</h1>
+      <p>Quality residential and commercial construction, built on trust.</p>
+      <a data-page="services" class="btn btn-outline">Explore Our Services</a>
+      <a data-page="contact" class="btn btn-primary hero-btn-second">Request a Consultation</a>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-title"><h2>About TrustBuilt</h2></div>
+      <div class="about-preview">
+        <p>Our team delivers quality results for residential and commercial projects. With a focus on craftsmanship and client satisfaction, we ensure a seamless experience from start to finish.</p>
+        <a data-page="about" class="btn btn-primary">Learn More About Us</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-title"><h2>Featured Projects</h2></div>
+      <div class="gallery-grid">
+        <div class="gallery-card"><div class="img-placeholder">Custom Kitchen Remodel &mdash; Elm Street Residence</div><div class="card-info"><h4>Luxury Kitchen Remodel</h4><p>Residential Interior &mdash; Marble countertops, custom cabinetry, and open-concept redesign.</p></div></div>
+        <div class="gallery-card"><div class="img-placeholder">Bathroom Renovation &mdash; Oak Lane Estate</div><div class="card-info"><h4>Spa-Style Bathroom</h4><p>Residential Interior &mdash; Steam shower, freestanding tub, heated floors.</p></div></div>
+        <div class="gallery-card"><div class="img-placeholder">Restaurant Fit-Out &mdash; Downtown District</div><div class="card-info"><h4>Restaurant Build-Out</h4><p>Commercial Interior &mdash; Full kitchen, custom bar, seating for 120 guests.</p></div></div>
+        <div class="gallery-card"><div class="img-placeholder">Outdoor Living &mdash; Maple Drive Residence</div><div class="card-info"><h4>Outdoor Kitchen & Patio</h4><p>Residential Exterior &mdash; Built-in grill, stone countertops, hardscaping.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-title"><h2>Why Choose TrustBuilt</h2></div>
+      <div class="values-grid">
+        <div class="value-card"><div class="value-icon">&#9733;</div><h4>Quality Craftsmanship</h4><p>Every project is executed with precision and the highest quality materials.</p></div>
+        <div class="value-card"><div class="value-icon">&#9830;</div><h4>Trust & Transparency</h4><p>Clear communication, honest pricing, and no hidden surprises.</p></div>
+        <div class="value-card"><div class="value-icon">&#9711;</div><h4>On-Time Delivery</h4><p>We respect your time with efficient project management and reliable scheduling.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-strip">
+    <div class="container"><h2>Ready to Start?</h2><p>Free consultation and estimate.</p><a data-page="contact" class="btn btn-primary">Get in Touch</a></div>
+  </section>
+</main>
+
+<!-- SERVICES PAGE -->
+<main id="page-services" class="page-section" style="display:none;">
+  <section class="page-banner"><div class="container"><h1>Our Services</h1><p>Residential and commercial construction, tailored to your project.</p></div></section>
+  <section class="section">
+    <div class="container">
+      <div class="service-tabs">
+        <button class="active" data-tab="residential">Residential</button>
+        <button data-tab="commercial">Commercial</button>
+      </div>
+
+      <!-- RESIDENTIAL -->
+      <div class="service-category" id="residential">
+        <div class="service-subtabs">
+          <button class="active" data-sub="res-interior">Interior</button>
+          <button data-sub="res-exterior">Exterior</button>
+        </div>
+        <div id="res-interior"><h3>Residential Interior</h3><div class="service-columns">
+          <div class="service-card"><h4>Custom Kitchen Remodeling</h4><p>Luxury cabinetry, marble or quartz countertops, high-end appliances, and open-concept designs.</p></div>
+          <div class="service-card"><h4>Bathroom Renovations</h4><p>Spa-style features including steam showers, freestanding tubs, heated floors, and high-end tiles.</p></div>
+          <div class="service-card"><h4>Home Theaters</h4><p>Soundproofing, tiered seating, integrated AV systems, and custom lighting.</p></div>
+          <div class="service-card"><h4>Basement Finishing</h4><p>In-law suites, home gyms, wine cellars, or entertainment spaces with full insulation, drywall, and flooring.</p></div>
+          <div class="service-card"><h4>Indoor Pool or Spa Installation</h4><p>Waterproofing, HVAC integration, and custom stonework.</p></div>
+          <div class="service-card"><h4>Open-Concept Space Conversions</h4><p>Load-bearing wall removal, structural beam installation, and redesigns.</p></div>
+          <div class="service-card"><h4>Custom Closets and Storage</h4><p>Bespoke shelving, lighting, and high-quality materials.</p></div>
+          <div class="service-card"><h4>Smart Home Automation</h4><p>Integrated systems for lighting, security, HVAC, and entertainment.</p></div>
+          <div class="service-card"><h4>Luxury Flooring Installation</h4><p>Hardwood, natural stone, polished concrete, or radiant floor heating.</p></div>
+          <div class="service-card"><h4>Painting and Wall Treatments</h4><p>Decorative painting, Venetian plaster, and paneling.</p></div>
+          <div class="service-card"><h4>High-End Lighting Installation</h4><p>Statement fixtures, recessed LED systems, and custom designs.</p></div>
+          <div class="service-card"><h4>Custom Millwork and Built-Ins</h4><p>Wood paneling, coffered ceilings, bookshelves, and fireplace mantels.</p></div>
+          <div class="service-card"><h4>Wine Cellar Design</h4><p>Climate-controlled rooms with custom racks and enclosures.</p></div>
+          <div class="service-card"><h4>Glasswork Installations</h4><p>Frameless showers, partitions, and custom glass doors.</p></div>
+          <div class="service-card"><h4>Custom Cabinetry</h4><p>Personalized furniture or storage pieces.</p></div>
+          <div class="service-card"><h4>Fireplace Upgrades</h4><p>Gas, electric, or wood fireplaces with luxury surrounds.</p></div>
+          <div class="service-card"><h4>Interior Structural Modifications</h4><p>Framing adjustments to accommodate new designs.</p></div>
+          <div class="service-card"><h4>Soundproofing and Acoustic Enhancements</h4><p>Professional sound isolation and acoustic treatments.</p></div>
+          <div class="service-card"><h4>In-Law Suites / Private Apartments</h4><p>Complete living spaces with kitchenettes, bathrooms, and private entrances.</p></div>
+        </div></div>
+        <div id="res-exterior" style="display:none;"><h3>Residential Exterior</h3><div class="service-columns">
+          <div class="service-card"><h4>Custom Home Construction</h4><p>Ground-up builds with high-end materials and bespoke designs.</p></div>
+          <div class="service-card"><h4>Roof Replacement or Installation</h4><p>Slate, metal, or tile roofing systems for durability and aesthetics.</p></div>
+          <div class="service-card"><h4>Outdoor Kitchens</h4><p>Built-in grills, pizza ovens, refrigeration, and stone countertops.</p></div>
+          <div class="service-card"><h4>Swimming Pool Installation</h4><p>Custom in-ground pools with waterfalls and heating systems.</p></div>
+          <div class="service-card"><h4>Detached Garages or ADUs</h4><p>Fully finished with plumbing, electrical, and premium materials.</p></div>
+          <div class="service-card"><h4>Hardscaping and Landscaping</h4><p>Patios, walkways, retaining walls, lighting, and drainage systems.</p></div>
+          <div class="service-card"><h4>Window Replacement</h4><p>Energy-efficient options, including bay or casement windows.</p></div>
+          <div class="service-card"><h4>Driveway Installation</h4><p>Stamped concrete, paver designs, or asphalt.</p></div>
+          <div class="service-card"><h4>Custom Decks, Pergolas, and Gazebos</h4><p>Custom-built structures with integrated lighting.</p></div>
+          <div class="service-card"><h4>Outdoor Entertainment Spaces</h4><p>Complete outdoor living areas with fire pits, seating, and AV.</p></div>
+          <div class="service-card"><h4>Exterior Painting or Staining</h4><p>High-quality finishes for siding, shutters, and trims.</p></div>
+          <div class="service-card"><h4>Retaining Walls</h4><p>Functional and decorative options in stone or modular blocks.</p></div>
+          <div class="service-card"><h4>Fence Installation</h4><p>Wood, vinyl, or wrought iron fencing.</p></div>
+          <div class="service-card"><h4>Exterior Lighting</h4><p>Pathway lights, wall-mounted fixtures, and landscape lighting.</p></div>
+          <div class="service-card"><h4>Concrete Work</h4><p>Driveways, walkways, patios, and foundation work.</p></div>
+        </div></div>
+      </div>
+
+      <!-- COMMERCIAL -->
+      <div class="service-category" id="commercial" style="display:none;">
+        <div class="service-subtabs">
+          <button class="active" data-sub="com-interior">Interior</button>
+          <button data-sub="com-exterior">Exterior</button>
+        </div>
+        <div id="com-interior"><h3>Commercial Interior</h3><div class="service-columns">
+          <div class="service-card"><h4>Full Commercial Build-Outs</h4><p>Complete construction for offices, retail, and restaurants, including framing, flooring, and systems.</p></div>
+          <div class="service-card"><h4>Custom Office Renovations</h4><p>Glass partitions, breakout spaces, and advanced AV systems.</p></div>
+          <div class="service-card"><h4>Industrial Facilities</h4><p>Mezzanines, shelving, climate control, and reinforced flooring.</p></div>
+          <div class="service-card"><h4>Restaurant Fit-Outs</h4><p>Commercial kitchens, custom bars, and seating areas with HVAC and fire systems.</p></div>
+          <div class="service-card"><h4>Hotel Renovations</h4><p>Redesign of lobbies, guest rooms, and common areas with luxury finishes.</p></div>
+          <div class="service-card"><h4>Medical Clinics and Labs</h4><p>Specialized construction meeting healthcare compliance standards.</p></div>
+          <div class="service-card"><h4>Conference Room Construction</h4><p>High-tech meeting spaces with AV systems and soundproofing.</p></div>
+          <div class="service-card"><h4>Retail Storefront Remodeling</h4><p>Updates to display areas, fitting rooms, and signage.</p></div>
+          <div class="service-card"><h4>High-End Retail Build-Outs</h4><p>Luxury finishes and custom fixtures for premium retail spaces.</p></div>
+          <div class="service-card"><h4>Educational Facilities</h4><p>Classrooms, labs, and common areas built to educational standards.</p></div>
+          <div class="service-card"><h4>Tenant Improvements</h4><p>Interior upgrades to meet lease specifications, including partitions and flooring.</p></div>
+          <div class="service-card"><h4>Gym and Fitness Centers</h4><p>Locker rooms, workout areas, and specialized flooring.</p></div>
+          <div class="service-card"><h4>Flooring Installation</h4><p>Vinyl, epoxy, or tile flooring for high-traffic areas.</p></div>
+          <div class="service-card"><h4>Partition Walls</h4><p>Lightweight or modular walls for offices or retail.</p></div>
+          <div class="service-card"><h4>Painting and Decorating</h4><p>Branding-focused designs, accent walls, and custom murals.</p></div>
+          <div class="service-card"><h4>Co-Working Spaces</h4><p>Flexible layouts with modern amenities and technology integration.</p></div>
+        </div></div>
+        <div id="com-exterior" style="display:none;"><h3>Commercial Exterior</h3><div class="service-columns">
+          <div class="service-card"><h4>New Commercial Building Construction</h4><p>Ground-up construction including site preparation and structural framing.</p></div>
+          <div class="service-card"><h4>Roof Installation</h4><p>TPO, EPDM, or green roofing systems.</p></div>
+          <div class="service-card"><h4>Facade Renovation</h4><p>Glass curtain walls, metal panels, and masonry.</p></div>
+          <div class="service-card"><h4>Parking Structures</h4><p>Multi-level garages with ventilation systems and safety compliance.</p></div>
+          <div class="service-card"><h4>Exterior Walkways and Plazas</h4><p>Pedestrian-friendly hardscaping with lighting and seating.</p></div>
+          <div class="service-card"><h4>Exterior Painting</h4><p>Protective and aesthetic coatings for building exteriors.</p></div>
+          <div class="service-card"><h4>Signage Installation</h4><p>LED displays and structural mounting.</p></div>
+          <div class="service-card"><h4>Landscaping and Hardscaping</h4><p>Walkways, plazas, irrigation, and outdoor seating.</p></div>
+          <div class="service-card"><h4>Window and Door Replacement</h4><p>Energy-efficient options for security and functionality.</p></div>
+          <div class="service-card"><h4>Minor Repairs</h4><p>Fixing cracks, patching siding, or replacing damaged fixtures.</p></div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-strip"><div class="container"><h2>Not Sure What You Need?</h2><p>Contact us for a free consultation.</p><a data-page="contact" class="btn btn-primary">Request a Consultation</a></div></section>
+</main>
+
+<!-- PORTFOLIO PAGE -->
+<main id="page-portfolio" class="page-section" style="display:none;">
+  <section class="page-banner"><div class="container"><h1>See Our Work</h1><p>Completed projects across residential and commercial sectors.</p></div></section>
+  <section class="section">
+    <div class="container">
+      <div class="portfolio-tabs">
+        <button class="active" data-tab="all">All Projects</button>
+        <button data-tab="residential-interior">Residential Interior</button>
+        <button data-tab="residential-exterior">Residential Exterior</button>
+        <button data-tab="commercial-interior">Commercial Interior</button>
+        <button data-tab="commercial-exterior">Commercial Exterior</button>
+      </div>
+      <div class="gallery-grid" id="portfolioGrid">
+        <div class="portfolio-item" data-category="residential-interior" data-title="Luxury Kitchen Transformation" data-tag="Residential Interior" data-location="Elm Street Residence" data-year="2025" data-budget="$185,000" data-desc="Complete kitchen remodel featuring marble countertops, custom cabinetry, open-concept redesign, and premium Wolf &amp; Sub-Zero appliances. The project opened up the main floor and created a seamless flow into the dining area."><img class="p-img" src="https://picsum.photos/seed/kitchen1/640/400" alt="Kitchen" loading="lazy"><div class="item-info"><h4>Luxury Kitchen Transformation</h4><p>Marble countertops, custom cabinetry, and premium appliances in an open-concept layout.</p><span class="item-tag">Residential Interior</span></div></div>
+        <div class="portfolio-item" data-category="residential-interior" data-title="Spa-Style Master Bathroom" data-tag="Residential Interior" data-location="Oak Lane Estate" data-year="2025" data-budget="$95,000" data-desc="Spa-style renovation featuring steam shower, freestanding soaking tub, heated flooring, and imported Italian tile. Custom vanity with dual sinks and smart mirror with integrated lighting."><img class="p-img" src="https://picsum.photos/seed/bath1/640/400" alt="Bathroom" loading="lazy"><div class="item-info"><h4>Spa-Style Master Bathroom</h4><p>Steam shower, freestanding tub, heated floors, and imported Italian tile.</p><span class="item-tag">Residential Interior</span></div></div>
+        <div class="portfolio-item" data-category="residential-interior" data-title="Private Home Theater" data-tag="Residential Interior" data-location="Pine Ridge Residence" data-year="2024" data-budget="$130,000" data-desc="Soundproofed 12-seat theater with tiered seating, 4K laser projection, Dolby Atmos 9.2.4 audio, and custom ambient LED lighting. Includes a concession bar and acoustic paneling throughout."><img class="p-img" src="https://picsum.photos/seed/theater1/640/400" alt="Home Theater" loading="lazy"><div class="item-info"><h4>Private Home Theater</h4><p>Soundproofed 12-seat theater with 4K projection and Dolby Atmos audio.</p><span class="item-tag">Residential Interior</span></div></div>
+        <div class="portfolio-item" data-category="residential-interior" data-title="Basement Entertainment Suite" data-tag="Residential Interior" data-location="Cedar Court" data-year="2024" data-budget="$155,000" data-desc="Full basement finishing with home gym featuring rubber flooring and mirrored walls, wet bar with quartz countertops, media lounge with built-in shelving, and a climate-controlled wine cellar."><img class="p-img" src="https://picsum.photos/seed/basement1/640/400" alt="Basement" loading="lazy"><div class="item-info"><h4>Basement Entertainment Suite</h4><p>Home gym, wet bar, media lounge, and climate-controlled wine cellar.</p><span class="item-tag">Residential Interior</span></div></div>
+        <div class="portfolio-item" data-category="residential-exterior" data-title="Custom Home Construction" data-tag="Residential Exterior" data-location="Willow Way" data-year="2025" data-budget="$890,000" data-desc="4,200 sq ft ground-up build with premium finishes and energy-efficient design. Features a modern farmhouse aesthetic with board-and-batten siding, standing seam metal roof, and expansive windows for natural light."><img class="p-img" src="https://picsum.photos/seed/home1/640/400" alt="Home" loading="lazy"><div class="item-info"><h4>Custom Home Construction</h4><p>4,200 sq ft ground-up build with modern farmhouse design.</p><span class="item-tag">Residential Exterior</span></div></div>
+        <div class="portfolio-item" data-category="residential-exterior" data-title="Outdoor Living &amp; Kitchen" data-tag="Residential Exterior" data-location="Maple Drive" data-year="2024" data-budget="$120,000" data-desc="Complete outdoor kitchen with built-in grill, pizza oven, refrigeration, and stone countertops. Features a cedar pergola with integrated lighting, bluestone patio, and a gas fire pit seating area."><img class="p-img" src="https://picsum.photos/seed/outdoor1/640/400" alt="Outdoor" loading="lazy"><div class="item-info"><h4>Outdoor Living &amp; Kitchen</h4><p>Built-in grill, pizza oven, cedar pergola, and bluestone patio.</p><span class="item-tag">Residential Exterior</span></div></div>
+        <div class="portfolio-item" data-category="residential-exterior" data-title="Custom In-Ground Pool" data-tag="Residential Exterior" data-location="Birch Lane" data-year="2025" data-budget="$175,000" data-desc="Heated 40' x 20' in-ground pool with waterfall feature, LED color-changing lighting, and natural stone surround. Includes a hot tub spillover, saltwater system, and automated pool cover."><img class="p-img" src="https://picsum.photos/seed/pool1/640/400" alt="Pool" loading="lazy"><div class="item-info"><h4>Custom In-Ground Pool</h4><p>Heated pool with waterfall, LED lighting, and natural stone surround.</p><span class="item-tag">Residential Exterior</span></div></div>
+        <div class="portfolio-item" data-category="residential-exterior" data-title="Slate Roof Replacement" data-tag="Residential Exterior" data-location="Ash Street" data-year="2024" data-budget="$78,000" data-desc="Full roof replacement with natural slate tiles and copper flashing. Includes new gutters, ice and water shield underlayment, and upgraded ridge vent system for improved attic ventilation."><img class="p-img" src="https://picsum.photos/seed/roof1/640/400" alt="Roof" loading="lazy"><div class="item-info"><h4>Slate Roof Replacement</h4><p>Natural slate tiles with copper flashing and upgraded ventilation.</p><span class="item-tag">Residential Exterior</span></div></div>
+        <div class="portfolio-item" data-category="commercial-interior" data-title="Restaurant Fit-Out" data-tag="Commercial Interior" data-location="Downtown District" data-year="2025" data-budget="$420,000" data-desc="Complete build-out of a 3,200 sq ft restaurant including commercial kitchen with hood suppression, custom walnut bar, and seating for 120 guests. Features exposed brick, industrial lighting, and acoustical ceiling treatments."><img class="p-img" src="https://picsum.photos/seed/restaurant1/640/400" alt="Restaurant" loading="lazy"><div class="item-info"><h4>Restaurant Fit-Out</h4><p>3,200 sq ft build-out with commercial kitchen and 120-seat dining room.</p><span class="item-tag">Commercial Interior</span></div></div>
+        <div class="portfolio-item" data-category="commercial-interior" data-title="Corporate Office Renovation" data-tag="Commercial Interior" data-location="Tech Park Plaza" data-year="2024" data-budget="$310,000" data-desc="Open-plan 8,000 sq ft office with glass partitions, three soundproofed conference rooms, breakout spaces, and integrated AV systems. Includes sit-stand workstations for 60 employees and a full kitchen and lounge."><img class="p-img" src="https://picsum.photos/seed/office1/640/400" alt="Office" loading="lazy"><div class="item-info"><h4>Corporate Office Renovation</h4><p>8,000 sq ft open-plan office with glass partitions and conference rooms.</p><span class="item-tag">Commercial Interior</span></div></div>
+        <div class="portfolio-item" data-category="commercial-interior" data-title="Boutique Hotel Renovation" data-tag="Commercial Interior" data-location="Lakeside District" data-year="2025" data-budget="$620,000" data-desc="Redesign of 45 guest rooms, lobby, and common areas with luxury finishes. Features custom millwork throughout, marble bathrooms, and a redesigned lobby with a two-story accent wall and gas fireplace."><img class="p-img" src="https://picsum.photos/seed/hotel1/640/400" alt="Hotel" loading="lazy"><div class="item-info"><h4>Boutique Hotel Renovation</h4><p>45 guest rooms, lobby, and common areas with luxury finishes.</p><span class="item-tag">Commercial Interior</span></div></div>
+        <div class="portfolio-item" data-category="commercial-exterior" data-title="Facade Renovation" data-tag="Commercial Exterior" data-location="River North Tower" data-year="2025" data-budget="$1,200,000" data-desc="Glass curtain wall installation and masonry restoration for a 12-story building. Includes energy-efficient glazing, aluminum composite panels, and structural reinforcement of the existing masonry facade."><img class="p-img" src="https://picsum.photos/seed/facade1/640/400" alt="Facade" loading="lazy"><div class="item-info"><h4>Facade Renovation</h4><p>Glass curtain wall and masonry restoration for a 12-story building.</p><span class="item-tag">Commercial Exterior</span></div></div>
+        <div class="portfolio-item" data-category="commercial-exterior" data-title="Multi-Level Parking Structure" data-tag="Commercial Exterior" data-location="West Loop" data-year="2024" data-budget="$2,800,000" data-desc="4-level parking garage with 320 spaces, mechanical ventilation system, LED lighting, and safety compliance. Features EV charging stations on every level and a green roof on the top deck."><img class="p-img" src="https://picsum.photos/seed/parking1/640/400" alt="Parking" loading="lazy"><div class="item-info"><h4>Multi-Level Parking Structure</h4><p>4-level, 320-space garage with EV charging and green roof.</p><span class="item-tag">Commercial Exterior</span></div></div>
+        <div class="portfolio-item" data-category="commercial-exterior" data-title="Commercial Plaza &amp; Landscaping" data-tag="Commercial Exterior" data-location="City Center" data-year="2025" data-budget="$350,000" data-desc="Outdoor seating, walkways, irrigation, and decorative hardscaping for a 15,000 sq ft commercial plaza. Includes shade structures, LED pathway lighting, native plant landscaping, and a water feature."><img class="p-img" src="https://picsum.photos/seed/plaza1/640/400" alt="Plaza" loading="lazy"><div class="item-info"><h4>Commercial Plaza &amp; Landscaping</h4><p>15,000 sq ft plaza with seating, water feature, and native landscaping.</p><span class="item-tag">Commercial Exterior</span></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-strip"><div class="container"><h2>Like What You See?</h2><p>Let us bring your vision to life.</p><a data-page="contact" class="btn btn-primary">Start Your Project</a></div></section>
+</main>
+
+<!-- ABOUT PAGE -->
+<main id="page-about" class="page-section" style="display:none;">
+  <section class="page-banner"><div class="container"><h1>Your Trusted Construction Partner</h1><p>Quality. Trust. Efficiency.</p></div></section>
+  <section class="section">
+    <div class="container">
+      <div class="about-intro">
+        <p>We leverage our network of skilled professionals to deliver exceptional results. From large-scale builds to precise renovations, every project exceeds expectations.</p>
+        <p style="margin-top:1rem;">We manage all aspects of your project, providing a seamless experience from start to finish. Our team brings decades of combined experience across residential and commercial sectors.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-title"><h2>Our Mission & Values</h2></div>
+      <div class="values-grid">
+        <div class="value-card"><div class="value-icon">&#9733;</div><h4>Quality</h4><p>We use only premium materials and proven techniques to deliver results that stand the test of time.</p></div>
+        <div class="value-card"><div class="value-icon">&#9830;</div><h4>Trust</h4><p>Honest communication, transparent pricing, and reliable service form the foundation of every client relationship.</p></div>
+        <div class="value-card"><div class="value-icon">&#9711;</div><h4>Efficiency</h4><p>Streamlined project management ensures on-time delivery without compromising on quality.</p></div>
+        <div class="value-card"><div class="value-icon">&#9734;</div><h4>Innovation</h4><p>We stay ahead of industry trends to offer modern solutions and cutting-edge techniques.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-title"><h2>Our Approach</h2></div>
+      <div class="values-grid">
+        <div class="value-card"><div class="value-icon">1</div><h4>Consultation</h4><p>We begin by understanding your vision, budget, and timeline during an in-depth consultation.</p></div>
+        <div class="value-card"><div class="value-icon">2</div><h4>Planning & Design</h4><p>Our team creates detailed plans, 3D renderings, and material selections for your approval.</p></div>
+        <div class="value-card"><div class="value-icon">3</div><h4>Construction</h4><p>Skilled craftsmen execute the plan with precision, following rigorous quality standards.</p></div>
+        <div class="value-card"><div class="value-icon">4</div><h4>Completion & Walkthrough</h4><p>We conduct a thorough final walkthrough to ensure every detail meets your expectations.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-strip"><div class="container"><h2>Work With a Team You Can Trust</h2><p>Experience the TrustBuilt difference.</p><a data-page="contact" class="btn btn-primary">Get in Touch</a></div></section>
+</main>
+
+<!-- CONTACT PAGE -->
+<main id="page-contact" class="page-section" style="display:none;">
+  <section class="page-banner"><div class="container"><h1>Let's Build Together</h1><p>Request a free consultation.</p></div></section>
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-form">
+          <h3>Send Us a Message</h3>
+          <p style="color:var(--color-text-light); margin-bottom:1.5rem;">We respond within 24 hours.</p>
+          <form id="contactForm" onsubmit="return handleFormSubmit(event)">
+            <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" name="name" placeholder="John Smith" required></div>
+            <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="john@example.com" required></div>
+            <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="(312) 555-0123"></div>
+            <div class="form-group"><label for="message">Tell Us About Your Project</label><textarea id="message" name="message" placeholder="Describe your project, including the type of service you are interested in, timeline, and any specific requirements." required></textarea></div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+          <p id="formSuccess" style="display:none; color:var(--color-primary); margin-top:1rem; font-weight:600;">Thank you for your message. We will be in touch shortly.</p>
+        </div>
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <div class="info-block"><p><strong>Address</strong><br>1234 Builder Lane, Suite 200<br>Chicago, IL 60601</p></div>
+          <div class="info-block"><p><strong>Phone</strong><br>(312) 555-0199</p></div>
+          <div class="info-block"><p><strong>Email</strong><br>info@trustbuiltconstruction.com</p></div>
+          <div class="info-block"><p><strong>Business Hours</strong><br>Monday &ndash; Friday: 7:00 AM &ndash; 5:00 PM<br>Saturday: 8:00 AM &ndash; 2:00 PM<br>Sunday: Closed</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-strip"><div class="container"><h2>Prefer to Call?</h2><p>(312) 555-0199</p><a href="tel:+13125550199" class="btn btn-primary">Call Now</a></div></section>
+</main>
+
+<!-- Shared Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>TrustBuilt Construction</h4><p>Quality residential and commercial construction.</p></div>
+      <div><h4>Quick Links</h4><ul><li><a data-page="home">Home</a></li><li><a data-page="services">Services</a></li><li><a data-page="portfolio">Portfolio</a></li><li><a data-page="about">About Us</a></li><li><a data-page="contact">Contact</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a data-page="services">Residential</a></li><li><a data-page="services">Commercial</a></li></ul></div>
+      <div><h4>Contact</h4><p>1234 Builder Lane<br>Suite 200<br>Chicago, IL 60601</p><p>Phone: (312) 555-0199<br>Email: info@trustbuiltconstruction.com</p></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 TrustBuilt Construction & Trade Services. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script>
+(function(){'use strict';
+var currentPage='home';
+function navigateTo(page){
+  if(page===currentPage)return;
+  document.querySelectorAll('.page-section').forEach(function(p){p.style.display='none';});
+  var t=document.getElementById('page-'+page);if(t)t.style.display='block';
+  document.querySelectorAll('.nav-links a, .site-footer a[data-page]').forEach(function(a){
+    if(a.getAttribute('data-page')===page)a.classList.add('active');else a.classList.remove('active');
+  });
+  var titles={home:'TrustBuilt Construction & Trade Services | Residential & Commercial Construction',services:'Services | TrustBuilt Construction & Trade Services',portfolio:'Portfolio | TrustBuilt Construction & Trade Services',about:'About Us | TrustBuilt Construction & Trade Services',contact:'Contact Us | TrustBuilt Construction & Trade Services'};
+  document.title=titles[page]||titles.home;
+  window.scrollTo(0,0);
+  var n=document.getElementById('navLinks'),m=document.getElementById('mobileToggle');
+  if(n)n.classList.remove('open');if(m)m.classList.remove('open');
+  currentPage=page;
+}
+document.querySelectorAll('[data-page]').forEach(function(l){
+  l.addEventListener('click',function(e){e.preventDefault();var p=this.getAttribute('data-page');if(p)navigateTo(p);});
+});
+var mt=document.getElementById('mobileToggle'),nl=document.getElementById('navLinks');
+if(mt&&nl){mt.addEventListener('click',function(){nl.classList.toggle('open');mt.classList.toggle('open');});}
+var st=document.querySelectorAll('.service-tabs button');
+if(st.length){st.forEach(function(b){b.addEventListener('click',function(){st.forEach(function(x){x.classList.remove('active');});b.classList.add('active');var id=b.getAttribute('data-tab');document.querySelectorAll('.service-category').forEach(function(c){c.style.display='none';});var tg=document.getElementById(id);if(tg){tg.style.display='block';tg.querySelectorAll('.service-subtabs button').forEach(function(s,i){s.classList.toggle('active',i===0);});tg.querySelectorAll('[id$="-interior"]').forEach(function(d){d.style.display='block';});tg.querySelectorAll('[id$="-exterior"]').forEach(function(d){d.style.display='none';});}});});}
+var sst=document.querySelectorAll('.service-subtabs button');
+if(sst.length){sst.forEach(function(b){b.addEventListener('click',function(){var parent=b.parentElement.parentElement;parent.querySelectorAll('.service-subtabs button').forEach(function(x){x.classList.remove('active');});b.classList.add('active');var sub=b.getAttribute('data-sub');parent.querySelectorAll('[id^="res-"],[id^="com-"]').forEach(function(d){d.style.display='none';});var tg=document.getElementById(sub);if(tg)tg.style.display='block';});});}
+var pt=document.querySelectorAll('.portfolio-tabs button');
+if(pt.length){pt.forEach(function(b){b.addEventListener('click',function(){pt.forEach(function(x){x.classList.remove('active');});b.classList.add('active');var f=b.getAttribute('data-tab');document.querySelectorAll('.portfolio-item').forEach(function(i){if(f==='all'||i.getAttribute('data-category')===f)i.style.display='block';else i.style.display='none';});});});}
+})();
+function handleFormSubmit(event){event.preventDefault();var f=document.getElementById('contactForm'),s=document.getElementById('formSuccess');if(f&&s){f.style.display='none';s.style.display='block';}return false;}
+</script>
+</body>
+</html>
