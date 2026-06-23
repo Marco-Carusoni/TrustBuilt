@@ -71,11 +71,10 @@ a{color:var(--color-primary);text-decoration:none}a:hover{color:var(--color-acce
 .service-tabs button.active{color:var(--color-primary);border-bottom-color:var(--color-accent)}
 .portfolio-tabs button{padding:clamp(.4rem,1vw,.8rem) clamp(.8rem,2vw,1.6rem);border:.13rem solid var(--color-border);background:var(--color-white);border-radius:var(--radius);cursor:pointer;font-size:.9rem;transition:all .25s ease;font-weight:500;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .portfolio-tabs button:hover,.portfolio-tabs button.active{background:var(--color-primary);color:var(--color-white);border-color:var(--color-primary)}
-.service-subtabs{display:inline-flex;border:.13rem solid var(--color-border);border-radius:2rem;overflow:hidden;margin-bottom:1.2rem}
-.service-subtabs button{padding:clamp(.35rem,.8vw,.6rem) clamp(1rem,2.5vw,2rem);border:none;background:var(--color-white);cursor:pointer;font-size:.88rem;transition:all .25s ease;font-weight:500;touch-action:manipulation;-webkit-tap-highlight-color:transparent;color:var(--color-text-light)}
-.service-subtabs button:hover{background:var(--color-bg-alt)}
-.service-subtabs button.active{background:var(--color-primary);color:var(--color-white)}
-.service-subtabs button+button{border-left:.06rem solid var(--color-border)}
+.service-subtabs{display:flex;gap:clamp(.5rem,1vw,.8rem);margin-bottom:1.2rem}
+.service-subtabs button{padding:clamp(.25rem,.6vw,.4rem) clamp(.5rem,1.2vw,1rem);border:none;border-bottom:.13rem solid transparent;background:none;border-radius:0;cursor:pointer;font-size:.85rem;transition:all .25s ease;font-weight:500;color:var(--color-text-light);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.service-subtabs button:hover{color:var(--color-primary);border-bottom-color:var(--color-border)}
+.service-subtabs button.active{color:var(--color-primary);border-bottom-color:var(--color-accent);font-weight:600}
 .portfolio-item{background:var(--color-white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s ease;cursor:pointer}
 .portfolio-item:hover{transform:translateY(-.25rem)}
 .portfolio-item .p-img{width:100%;height:clamp(8rem,20vw,16rem);object-fit:cover;display:block}
